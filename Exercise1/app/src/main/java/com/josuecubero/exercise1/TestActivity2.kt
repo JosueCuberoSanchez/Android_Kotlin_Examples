@@ -8,15 +8,21 @@ import kotlinx.android.synthetic.main.activity_test2.*
 
 class TestActivity2 : AppCompatActivity() {
 
+    companion object {
+        const val EXTRA_REPLY = "REPLY"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test2)
 
         sendButton.setOnClickListener {
-            val intent = Intent(this, TestActivity1::class.java)
-            val receivedText = findViewById<EditText>(R.id.editText).text.toString()
-            intent.putExtra("RECEIVED_TEXT", receivedText)
-            startActivity(intent)
+            editText.text?.let {
+                val intent = Intent()
+                intent.putExtra(EXTRA_REPLY, it.toString())
+                setResult(RESULT_OK, intent)
+                finish()
+            }
         }
     }
 }
