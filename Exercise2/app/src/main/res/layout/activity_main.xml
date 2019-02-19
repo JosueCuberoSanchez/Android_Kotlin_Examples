@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        android:layout_margin="20dp">
+
+    <Button
+            android:id="@+id/toastButton"
+            android:layout_height="44dp"
+            android:layout_width="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/counterText"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="@string/button_1"/>
+
+    <TextView
+            android:id="@+id/counterText"
+            android:layout_height="0dp"
+            android:text="@string/hola"
+            android:layout_width="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toastButton"
+            app:layout_constraintBottom_toTopOf="@+id/countButton"
+            android:background="@color/colorAccent"
+            android:textAlignment="center"
+            android:textSize="120sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"/>
+    <Button
+            android:id="@+id/countButton"
+            android:layout_height="44dp"
+            android:layout_width="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/counterText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="@string/button_2"/>
+</android.support.constraint.ConstraintLayout>
