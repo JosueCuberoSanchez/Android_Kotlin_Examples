@@ -1,8 +1,21 @@
 package com.example.model
 
-data class Location(val lat: String, val address: String, val lgn: String,
-                    val photos: Array<Photo>, val postalCode: String, val province: String,
-                    val city: String, val country: String) {
+import android.arch.persistence.room.ColumnInfo
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
+
+@Entity
+data class Location(
+    @PrimaryKey var id: Int,
+    @ColumnInfo(name = "latitude") val lat: String,
+    @ColumnInfo(name = "address") val address: String,
+    @ColumnInfo(name = "longitude") val lgn: String,
+    @ColumnInfo(name = "photos") val photos: Array<Photo>,
+    @ColumnInfo(name = "postal_code") val postalCode: String,
+    @ColumnInfo(name = "province") val province: String,
+    @ColumnInfo(name = "city") val city: String,
+    @ColumnInfo(name = "country") val country: String
+) {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

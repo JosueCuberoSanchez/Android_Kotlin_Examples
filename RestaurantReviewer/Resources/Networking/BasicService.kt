@@ -1,14 +1,14 @@
-package com.example.remote
+package com.example.leonardomadrigal.androidbasics.remote
 
-import com.example.model.Restaurant
-import com.example.model.User
+import com.example.leonardomadrigal.androidbasics.model.Todo
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.*
-
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface BasicService {
 
@@ -21,7 +21,7 @@ interface BasicService {
             okhttpClientBuilder.addInterceptor(logging)
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://restaurantsreviews-bstn.firebaseapp.com/api/v1/")
+                .baseUrl("https://jsonplaceholder.typicode.com/")
                 .client(okhttpClientBuilder.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
@@ -29,13 +29,9 @@ interface BasicService {
         }
     }
 
-    @POST("user")
-    fun login(@Body user: User): Call<Unit>
+    @GET("todos")
+    fun getTodos(): Call<List<Todo>>
 
-    @GET("restaurants")
-    fun getRestaurants(): Call<ArrayList<Restaurant>>
-
-    @GET("restaurants/{restaurantId}")
-    fun getRestaurant(@Path("restaurantId") restaurantId: String): Call<Restaurant>
-
+    @GET("todos/{id}")
+    fun getTodo(@Path("id") id: Int): Call<Todo>
 }

@@ -2,6 +2,7 @@ package com.example.restaurantreviewer
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.views.login.LoginFragment
 
 class MainActivity : AppCompatActivity() {
 

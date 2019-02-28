@@ -1,7 +1,17 @@
 package com.example.model
 
-data class Restaurant(val id: String, val name: String, val location: Location,
-                      val url: String, val reviews: Array<String>) {
+import android.arch.persistence.room.ColumnInfo
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
+
+@Entity
+data class Restaurant(
+    @PrimaryKey val id: String,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "location") val location: Location,
+    @ColumnInfo(name = "url") val url: String,
+    @ColumnInfo(name = "reviews") val reviews: Array<Review>
+) {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

@@ -5,14 +5,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:label="@string/dashboard"
-        tools:context="com.example.views.dashboard.DashboardFragment">
+        tools:context=".MainActivity">
 
     <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/restaurants"
+            android:text="@string/todos"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -20,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
     <android.support.v7.widget.RecyclerView
-            android:id="@+id/restaurantList"
+            android:id="@+id/todosList"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintTop_toBottomOf="@+id/title"
@@ -31,5 +30,24 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"/>
 
+    <RelativeLayout
+            android:id="@+id/loading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="4dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="#50000000"
+            android:gravity="center"
+            android:visibility="gone">
+
+        <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"/>
+
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
