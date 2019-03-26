@@ -1,5 +1,7 @@
 package com.example.adapter
 
+import android.content.Context
+import android.os.Handler
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +11,8 @@ import com.example.model.Restaurant
 import kotlinx.android.synthetic.main.restaurant_item.view.*
 import com.bumptech.glide.Glide
 import com.example.restaurantreviewer.R
+import com.example.storage.AppDatabase
+import com.example.storage.DbWorkerThread
 
 class RestaurantAdapter(private var items: List<Restaurant> = emptyList(),
                         private val listener: (String) -> Unit):
@@ -38,5 +42,6 @@ class RestaurantAdapter(private var items: List<Restaurant> = emptyList(),
 
             Glide.with(itemView).load(restaurant.location.photos[0].url).into(itemView.restaurant_image)
         }
+
     }
 }

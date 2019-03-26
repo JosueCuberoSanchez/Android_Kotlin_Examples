@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 class DashboardFragment : Fragment() {
 
-    private val restaurantAdapter = RestaurantAdapter(listener = { itemId: String -> itemClicked(itemId) })
+    private lateinit var restaurantAdapter: RestaurantAdapter
 
     private val viewModel by lazy {
         ViewModelProviders.of(this, DashboardViewModelFactory(BasicService.instance))
@@ -29,6 +29,7 @@ class DashboardFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        restaurantAdapter = RestaurantAdapter(listener = { itemId: String -> itemClicked(itemId) })
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 

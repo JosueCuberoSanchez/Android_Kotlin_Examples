@@ -3,6 +3,13 @@ package com.example.model
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
+import android.arch.persistence.room.TypeConverter
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.util.*
+import java.util.Collections.emptyList
+
+
 
 @Entity
 data class Restaurant(
@@ -10,7 +17,7 @@ data class Restaurant(
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "location") val location: Location,
     @ColumnInfo(name = "url") val url: String,
-    @ColumnInfo(name = "reviews") val reviews: Array<Review>
+    @ColumnInfo(name = "reviews") val reviews: List<Review>
 ) {
 
     override fun equals(other: Any?): Boolean {
@@ -23,7 +30,6 @@ data class Restaurant(
         if (name != other.name) return false
         if (location != other.location) return false
         if (url != other.url) return false
-        if (!reviews.contentEquals(other.reviews)) return false
 
         return true
     }
@@ -33,7 +39,7 @@ data class Restaurant(
         result = 31 * result + name.hashCode()
         result = 31 * result + location.hashCode()
         result = 31 * result + url.hashCode()
-        result = 31 * result + reviews.contentHashCode()
         return result
     }
+
 }

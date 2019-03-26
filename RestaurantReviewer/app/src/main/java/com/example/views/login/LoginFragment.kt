@@ -48,7 +48,7 @@ class LoginFragment : Fragment() {
         val password = password_edit_text.text.toString()
 
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
-            val user = User(email, password)
+            val user = User(1, email, password)
             viewModel.authenticate(user)
             //login(user)
         }

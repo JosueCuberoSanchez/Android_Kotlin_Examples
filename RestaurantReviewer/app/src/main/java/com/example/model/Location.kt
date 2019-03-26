@@ -10,7 +10,7 @@ data class Location(
     @ColumnInfo(name = "latitude") val lat: String,
     @ColumnInfo(name = "address") val address: String,
     @ColumnInfo(name = "longitude") val lgn: String,
-    @ColumnInfo(name = "photos") val photos: Array<Photo>,
+    @ColumnInfo(name = "photos") val photos: List<Photo>,
     @ColumnInfo(name = "postal_code") val postalCode: String,
     @ColumnInfo(name = "province") val province: String,
     @ColumnInfo(name = "city") val city: String,
@@ -26,7 +26,6 @@ data class Location(
         if (lat != other.lat) return false
         if (address != other.address) return false
         if (lgn != other.lgn) return false
-        if (!photos.contentEquals(other.photos)) return false
         if (postalCode != other.postalCode) return false
         if (province != other.province) return false
         if (city != other.city) return false
@@ -39,7 +38,6 @@ data class Location(
         var result = lat.hashCode()
         result = 31 * result + address.hashCode()
         result = 31 * result + lgn.hashCode()
-        result = 31 * result + photos.contentHashCode()
         result = 31 * result + postalCode.hashCode()
         result = 31 * result + province.hashCode()
         result = 31 * result + city.hashCode()

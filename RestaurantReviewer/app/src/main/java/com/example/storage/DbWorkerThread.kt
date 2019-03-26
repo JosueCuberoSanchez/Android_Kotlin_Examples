@@ -13,6 +13,7 @@ class DbWorkerThread(threadName: String) : HandlerThread(threadName) {
     }
 
     fun postTask(task: Runnable) {
+        workerHandler = Handler(looper)
         workerHandler.post(task)
     }
 

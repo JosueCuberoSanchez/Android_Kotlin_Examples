@@ -3,9 +3,11 @@ package com.example.storage
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
+import android.arch.persistence.room.TypeConverters
 import android.content.Context
 import com.example.dao.*
 import com.example.model.*
+import com.example.resources.TypeConverter
 
 @Database(entities = [User::class,
                       Restaurant::class,
@@ -13,6 +15,7 @@ import com.example.model.*
                       Photo::class,
                       Location::class],
           version = 1)
+@TypeConverters(TypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun restaurantDao(): RestaurantDao
